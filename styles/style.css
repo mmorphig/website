@@ -36,6 +36,7 @@ div {
     min-width: 107px;
     width: auto;
     margin: 0 auto;
+    animation: brightnessPulse 6s ease-in-out infinite;
 }
 
 #logo-header-bar p {
@@ -55,7 +56,6 @@ div {
 
 .header-bar ul {
     display: flex;
-    justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -71,43 +71,52 @@ div {
     font-weight: bold;
 }
 
+.header-bar#mainpage-header-bar ul {
+    justify-content: center;
+}
+
 #mainpage-header-bar a {
     font-size: 1rem;
 }
 
 #header-bar a {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 #header-bar a:hover,
-#mainpage-header-bar a:hover {
+#mainitem-header-bar a:hover {
     color: #f9d;
     text-decoration: underline;
 }
 
 #content {
     text-align: center;
-}
-
-#content.frontpage {
     display: table;
     margin: 0 auto;
     width: 100%;
 }
 
-.column#rightbar {
+.rightbar {
     width: 34%;
     display: table-cell;
     padding: 10px 1%;
 }
 
-.column#middlebar {
+.leftbar {
     width: 66%;
     display: table-cell;
     padding: 10px 1%;
 }
 
-.mainpage-block {
+.column#site-info-column {
+    width: 20%;
+}
+
+.column#site-news-column {
+    width: 80%;
+}
+
+.mainitem-block {
     display: block;
     background: #000;
     border: 0px;
@@ -118,9 +127,34 @@ div {
     text-align: left;
 }
 
-.mainpage-block h1,
-.mainpage-block h2 {
+.mainitem-block#site-info {
+    display: block;
+    background: #000;
+    border: 0px;
+    margin: 0px auto 20px;
+    width: 98%;
+    padding: 1px;
+    display: table;
+    text-align: left;
+}
+
+.mainitem-block h1,
+.mainitem-block h2 {
     background: #926;
+    color: #eee;
+    padding: 3px;
+    border: 0px;
+    margin: 1px;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.mainitem-block h2 {
+    font-size: 1rem;
+}
+
+.mainitem-block p {
+    background: #413;
     color: #eee;
     padding: 3px;
     border: 0px;
@@ -129,12 +163,18 @@ div {
     font-size: 100%;
 }
 
-.mainpage-block p {
-    background: #413;
-    color: #eee;
-    padding: 3px;
-    border: 0px;
-    margin: 1px;
-    text-align: left;
-    font-size: 100%;
+.mainitem-block > *:not(:first-child):nth-child(2n) {
+  background-color: #413;
+  color: #eee;
+}
+
+.mainitem-block > *:not(:first-child):nth-child(2n+1) {
+  background-color: #926;
+  color: #eee;
+}
+
+@keyframes brightnessPulse {
+    0%   { filter: brightness(100%); }
+    50%  { filter: brightness(120%); }
+    100% { filter: brightness(100%); }
 }
