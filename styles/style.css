@@ -1,15 +1,40 @@
+:root {
+    --main-font-color: #eee;
+    --main-bg-color: #000;
+    --secondary-bg-color: #111;
+    --main-accent-color: #926;
+    --secondary-accent-color: #413;
+    --tertiary-accent-color: #c59;
+    --quaternary-accent-color: #f9d;
+    --new-link-color: #f00;
+}
+
+.light-theme {
+    --main-font-color: #222;
+    --main-bg-color: #f72;
+    --secondary-bg-color: #fbf;
+    --main-accent-color: #f37;
+    --secondary-accent-color: #fa7;
+    --tertiary-accent-color: #f82;
+    --quaternary-accent-color: #f40;
+    --new-link-color: #00f;
+}
+
 html, body {
-    background-color: #000;
     margin: 0;
     padding: 0;
     border: 0;
-    color: #eee;
+    background-color: var(--main-bg-color);
+    height: 100%;
 }
 
 body {
-    font-size: 12pt;
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    font-size: 11pt;
     font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    color: #ffffff;
+    color: var(--main-font-color);
 }
 
 div {
@@ -17,12 +42,16 @@ div {
     user-select: none;
 }
 
+a {
+    color: var(--new-link-color); /* The default blue does NOT work well with the other colours */
+}
+
 #logo-header-bar {
     display: flex;
     width: 100%;
     height: 16vh;
     min-height: 60px;
-    background-color: #000;
+    background-color: var(--main-bg-color);
     position: relative;
     flex-direction: column;
     align-items: center;
@@ -36,11 +65,11 @@ div {
     min-width: 107px;
     width: auto;
     margin: 0 auto;
-    animation: brightnessPulse 6s ease-in-out infinite;
+    animation: brightnessPulse 8s ease-in-out infinite;
 }
 
 #logo-header-bar p {
-    color: #fff;
+    color: var(--main-font-color);
     text-align: center;
     margin: 0 auto;
 }
@@ -50,8 +79,8 @@ div {
     margin: 0px;
     margin-bottom: 8px;
     padding: 3px 0px;
-    background-color: #111;
-    border-bottom: 1px solid #926;
+    background-color: var(--secondary-bg-color);
+    border-bottom: 1px solid var(--main-accent-color);
 }
 
 .header-bar ul {
@@ -67,8 +96,14 @@ div {
 
 .header-bar a {
     text-decoration: none;
-    color: #eee;
+    color: var(--main-font-color);
     font-weight: bold;
+}
+
+.header-bar li::first-letter {
+    color: var(--tertiary-accent-color);
+    text-decoration: underline;
+    text-transform: capitalize;
 }
 
 .header-bar#mainpage-header-bar ul {
@@ -80,13 +115,7 @@ div {
 }
 
 #header-bar a {
-    font-size: 1.6rem;
-}
-
-#header-bar a:hover,
-#mainitem-header-bar a:hover {
-    color: #f9d;
-    text-decoration: underline;
+    font-size: 1.35rem;
 }
 
 #content {
@@ -94,6 +123,7 @@ div {
     display: table;
     margin: 0 auto;
     width: 100%;
+    flex: 1;
 }
 
 .rightbar {
@@ -110,6 +140,7 @@ div {
 
 .column#site-info-column {
     width: 20%;
+    min-width: 170px;
 }
 
 .column#site-news-column {
@@ -118,7 +149,7 @@ div {
 
 .mainitem-block {
     display: block;
-    background: #000;
+    background: var(--main-bg-color);
     border: 0px;
     margin: 0px auto 20px;
     width: 98%;
@@ -129,7 +160,7 @@ div {
 
 .mainitem-block#site-info {
     display: block;
-    background: #000;
+    background: var(--main-bg-color);
     border: 0px;
     margin: 0px auto 20px;
     width: 98%;
@@ -140,8 +171,8 @@ div {
 
 .mainitem-block h1,
 .mainitem-block h2 {
-    background: #926;
-    color: #eee;
+    background: var(--main-accent-color);
+    color: var(--main-font-color);
     padding: 3px;
     border: 0px;
     margin: 1px;
@@ -154,8 +185,8 @@ div {
 }
 
 .mainitem-block p {
-    background: #413;
-    color: #eee;
+    background: var(--secondary-accent-color);
+    color: var(--main-font-color);
     padding: 3px;
     border: 0px;
     margin: 1px;
@@ -164,17 +195,75 @@ div {
 }
 
 .mainitem-block > *:not(:first-child):nth-child(2n) {
-  background-color: #413;
-  color: #eee;
+  background-color: var(--secondary-accent-color);
+  color: var(--main-font-color);
 }
 
 .mainitem-block > *:not(:first-child):nth-child(2n+1) {
-  background-color: #926;
-  color: #eee;
+  background-color: var(--tertiary-accent-color);
+  color: var(--main-font-color);
+}
+
+.header-bar a:hover,
+#mainitem-header-bar a:hover {
+    color: var(--quaternary-accent-color);
+    text-decoration: underline;
+}
+
+.page-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 8vh;
+    min-height: 100px;
+    background-color: var(--secondary-accent-color);
+    position: relative;
+    padding: 0 1%;
+    box-sizing: border-box;
+}
+
+.footer-column-left,
+.footer-column-middle {
+    display: flex;
+    align-items: center;
+}
+
+.footer-column-left {
+    flex: 0 0 auto;
+}
+
+.footer-column-middle {
+    flex: 1;
+}
+
+.footer-column-right {
+    flex: 0 0 auto;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    /*transform: translateY(-50%);*/
+}
+
+#footer-logo {
+    height: 7vh;
+    width: auto;
+    min-height: 88px;
+}
+
+#light-dark-toggle {
+    width: auto;
+    height: 3vh;
+    cursor: pointer;
+    min-height: 22;
+    border-radius: 100%; /* full circle, 100% works fine */
+    background-color: var(--tertiary-accent-color);
+    padding: 2px 2px;
+    min-height: 38px;
 }
 
 @keyframes brightnessPulse {
     0%   { filter: brightness(100%); }
-    50%  { filter: brightness(120%); }
+    50%  { filter: brightness(130%); }
     100% { filter: brightness(100%); }
 }

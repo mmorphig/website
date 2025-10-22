@@ -3,6 +3,16 @@
 <head>
     <base href="../"/> <!-- Maybe kind of cursed way to do this, but it works-->
     <link rel="stylesheet" href="styles/style.css">
+    <script>
+        (function() {
+            const isDark = localStorage.getItem('theme') === 'dark';
+            if (isDark) {
+                document.documentElement.classList.remove('light-theme');
+            } else {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is this place?</title>
 </head>
@@ -23,14 +33,52 @@
         <div id="site-info-column" class="rightbar column">
             <div id="site-info-contributors" class="mainitem-block">
                 <h1>Contributors</h1>
-                <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style="color: red;">mmorphig</a></p>
-                <p>nah just me</p>
+                <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">mmorphig</a></p>
+                <p>no one else D:</p>
             </div>
             <div id="site-info-resources" class="mainitem-block">
                 <h1>Resources</h1>
-                <p>Github repo with school projects <a style="color: red;" href="https://github.com/mmorphig/School-stuff">mmorphig/School-stuff</a></p>
+                <p>Github repo with school projects <a href="https://github.com/mmorphig/School-stuff">mmorphig/School-stuff</a></p>
             </div>
         </div>
     </div>
+    <div id="footer" class="page-footer">
+        <div class="footer-column-left">
+            <img id="footer-logo" alt="banner image didn't load :(" src="images/banner-logo.svg">
+        </div>
+        <div class="footer-column-middle">
+            <ul></ul>
+        </div>
+        <div class="footer-column-right">
+            <img id="light-dark-toggle" src="images/dark.svg">
+        </div>
+    </div>
+    <script>
+        const img = document.getElementById('light-dark-toggle');
+        const root = document.documentElement;
+
+        // Load theme preference
+        let dark = localStorage.getItem('theme') === 'dark';
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                root.classList.remove('light-theme');
+                img.src = 'images/dark.svg';
+            } else {
+                root.classList.add('light-theme');
+                img.src = 'images/bright.svg';
+            }
+        }
+
+        // Apply saved theme
+        applyTheme(dark);
+
+        // Toggle theme
+        img.addEventListener('click', () => {
+            dark = !dark;
+            applyTheme(dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        });
+    </script>
 </body>
 </html>

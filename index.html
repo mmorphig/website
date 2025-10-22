@@ -1,32 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preload" href="images/banner-logo.svg" as="image">
     <link rel="stylesheet" href="styles/style.css">
+    <script>
+        (function() {
+            const isDark = localStorage.getItem('theme') === 'dark';
+            if (isDark) {
+                document.documentElement.classList.remove('light-theme');
+            } else {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page of the Pain :3</title>
 </head>
 
 <body>
     <div id="logo-header-bar">
-        <img src="images/banner-logo.svg">
+        <img alt="banner image didn't load :(" src="images/banner-logo.svg">
     </div>
     <nav id="mainpage-header-bar" class="header-bar">
         <ul>
             <li><a href="info">News & Info</a></li>
-            <li><a href="example page">Example</a></li>
+            <li><a href="example page">Example HTML</a></li>
         </ul>
     </nav>
     <div id="content" class="frontpage">
-        <div id="mainitem-left-column" class="leftbar">
+        <div id="mainpage-left-column" class="leftbar">
             <div class="mainitem-block">
-                <h2>Nothing yet</h2>
+                <h2>Welcome</h2>
+                <p>Just a first word of warning: this is <b>not</b> a personal site or something. I'm just doing whatever I want really.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
             </div>
         </div>
-        <div id="mainitem-right-column" class="rightbar">
+        <div id="mainpage-right-column" class="rightbar">
             <div class="mainitem-block">
                 <h2>:)</h2>
             </div>
         </div>
     </div>
+    <footer id="mainpage-footer" class="page-footer">
+        <div class="footer-column-left">
+            <img id="footer-logo" alt="banner image didn't load :(" src="images/banner-logo.svg">
+        </div>
+        <div class="footer-column-middle">
+            <ul></ul>
+        </div>
+        <div class="footer-column-right">
+            <img id="light-dark-toggle" src="images/dark.svg">
+        </div>
+    </footer>
+    <script>
+        const img = document.getElementById('light-dark-toggle');
+        const root = document.documentElement;
+
+        // Load theme preference
+        let dark = localStorage.getItem('theme') === 'dark';
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                root.classList.remove('light-theme');
+                img.src = 'images/dark.svg';
+            } else {
+                root.classList.add('light-theme');
+                img.src = 'images/bright.svg';
+            }
+        }
+
+        // Apply saved theme
+        applyTheme(dark);
+
+        // Toggle theme
+        img.addEventListener('click', () => {
+            dark = !dark;
+            applyTheme(dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        });
+    </script>
 </body>
 </html>
