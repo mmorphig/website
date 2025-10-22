@@ -27,6 +27,7 @@
         <div id="site-news-column" class="leftbar column">
             <div id="site-news" class="mainitem-block">
                 <h1>News</h1>
+                <p>Fun "light mode" based on my palette, maybe will edit it a bit at some point.<br>- Tess</p>
                 <p><b>First version!</b> Not good by any means but I'm just messing around really :thumbsup:.<br>- Kuro :)</p>
             </div>
         </div>
@@ -44,7 +45,6 @@
     </div>
     <div id="footer" class="page-footer">
         <div class="footer-column-left">
-            <img id="footer-logo" alt="banner image didn't load :(" src="images/banner-logo.svg">
         </div>
         <div class="footer-column-middle">
             <ul></ul>
@@ -57,7 +57,6 @@
         const img = document.getElementById('light-dark-toggle');
         const root = document.documentElement;
 
-        // Load theme preference
         let dark = localStorage.getItem('theme') === 'dark';
 
         function applyTheme(isDark) {
@@ -70,10 +69,8 @@
             }
         }
 
-        // Apply saved theme
         applyTheme(dark);
 
-        // Toggle theme
         img.addEventListener('click', () => {
             dark = !dark;
             applyTheme(dark);

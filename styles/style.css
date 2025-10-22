@@ -219,7 +219,7 @@ a {
     min-height: 100px;
     background-color: var(--secondary-accent-color);
     position: relative;
-    padding: 0 1%;
+    padding: 1% 1%;
     box-sizing: border-box;
 }
 
@@ -241,8 +241,7 @@ a {
     flex: 0 0 auto;
     position: absolute;
     right: 1%;
-    top: 50%;
-    /*transform: translateY(-50%);*/
+    bottom: 4%
 }
 
 #footer-logo {

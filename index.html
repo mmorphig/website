@@ -19,7 +19,7 @@
 
 <body>
     <div id="logo-header-bar">
-        <img alt="banner image didn't load :(" src="images/banner-logo.svg">
+        <img id="banner-logo" alt="banner image didn't load :(" src="images/banner-logo.svg">
     </div>
     <nav id="mainpage-header-bar" class="header-bar">
         <ul>
@@ -30,7 +30,7 @@
         <div id="mainpage-left-column" class="leftbar">
             <div class="mainitem-block">
                 <h2>Welcome</h2>
-                <p>Just a first word of warning: this is <b>not</b> a personal site or something. I'm just doing whatever I want really.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+                <p>Just a first word of warning: this is <b>not</b> a personal site or something. I'm just doing whatever I want really.</p>
             </div>
         </div>
         <div id="mainpage-right-column" class="rightbar">
@@ -41,7 +41,6 @@
     </div>
     <footer id="mainpage-footer" class="page-footer">
         <div class="footer-column-left">
-            <img id="footer-logo" alt="banner image didn't load :(" src="images/banner-logo.svg">
         </div>
         <div class="footer-column-middle">
             <ul></ul>
@@ -51,10 +50,9 @@
         </div>
     </footer>
     <script>
-        const img = document.getElementById('light-dark-toggle');
+        const LightDarkimg = document.getElementById('light-dark-toggle');
         const root = document.documentElement;
 
-        // Load theme preference
         let dark = localStorage.getItem('theme') === 'dark';
 
         function applyTheme(isDark) {
@@ -67,14 +65,19 @@
             }
         }
 
-        // Apply saved theme
         applyTheme(dark);
 
-        // Toggle theme
         img.addEventListener('click', () => {
             dark = !dark;
             applyTheme(dark);
             localStorage.setItem('theme', dark ? 'dark' : 'light');
+        });
+    </script>
+    <script>
+        const BannerLogoimg = document.getElementById('banner-logo');
+        BannerLogoimg.addEventListener('click', () => {
+            BannerLogoimg.src = 'images/banner-logo-boop.svg';
+            setTimeout(() => {BannerLogoimg.src = 'images/banner-logo.svg';}, 2000)
         });
     </script>
 </body>
