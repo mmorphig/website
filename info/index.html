@@ -54,7 +54,7 @@
         </div>
     </div>
     <script>
-        const img = document.getElementById('light-dark-toggle');
+        const LightDarkimg = document.getElementById('light-dark-toggle');
         const root = document.documentElement;
 
         let dark = localStorage.getItem('theme') === 'dark';
@@ -62,16 +62,16 @@
         function applyTheme(isDark) {
             if (isDark) {
                 root.classList.remove('light-theme');
-                img.src = 'images/dark.svg';
+                LightDarkimg.src = 'images/dark.svg';
             } else {
                 root.classList.add('light-theme');
-                img.src = 'images/bright.svg';
+                LightDarkimg.src = 'images/bright.svg';
             }
         }
 
         applyTheme(dark);
 
-        img.addEventListener('click', () => {
+        LightDarkimg.addEventListener('click', () => {
             dark = !dark;
             applyTheme(dark);
             localStorage.setItem('theme', dark ? 'dark' : 'light');

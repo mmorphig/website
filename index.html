@@ -58,16 +58,16 @@
         function applyTheme(isDark) {
             if (isDark) {
                 root.classList.remove('light-theme');
-                img.src = 'images/dark.svg';
+                LightDarkimg.src = 'images/dark.svg';
             } else {
                 root.classList.add('light-theme');
-                img.src = 'images/bright.svg';
+                LightDarkimg.src = 'images/bright.svg';
             }
         }
 
         applyTheme(dark);
 
-        img.addEventListener('click', () => {
+        LightDarkimg.addEventListener('click', () => {
             dark = !dark;
             applyTheme(dark);
             localStorage.setItem('theme', dark ? 'dark' : 'light');
