@@ -169,6 +169,10 @@ a {
     text-align: left;
 }
 
+.mainitem-block * {
+    margin: 1px;
+}
+
 .mainitem-block#site-info {
     width: 98%;
     text-align: left;
