@@ -173,7 +173,7 @@ a {
     text-align: left;
 }
 
-.mainitem-block#gallery-images .gallery-image {
+.gallery-image {
     display: flex;
     height: auto;
     font-family: monospace;
